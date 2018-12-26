@@ -11,6 +11,7 @@ import com.atm.impl.TransactImpl;
 public class ATM {
 	private static int cardId;
 	private static int pin;
+	private static long transactionId;
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -55,6 +56,12 @@ public class ATM {
 		System.out.println("Enter the amount you want to withdraw");
 		long withdrawalAmt = Long.parseLong(br.readLine());
 		boolean isSufficientBalance = new TransactImpl().checkBalance(foundCustomer, withdrawalAmt);
-
+		if(isSufficientBalance) {
+			transactionId = new TransactImpl().generateTransactionId();
+			
+		}
+		else {
+			System.out.println("Insufficient balance in your account");
+		}
 	}
 }

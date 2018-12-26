@@ -14,7 +14,8 @@ public interface ITransact {
 	// public void deductAmount(Customer c, long amount);
 
 	// store user's transactions
-	//public void maintainTransactionStatus(long transactionID, Customer c);
-	
+	// public void maintainTransactionStatus(long transactionID, Customer c);
+
+	// print all transactions for a customer
 	public void printTransactionStatus(Customer c);
 }

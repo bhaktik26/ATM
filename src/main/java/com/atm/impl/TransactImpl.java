@@ -10,6 +10,7 @@ public class TransactImpl implements ITransact {
 	Random rand = new Random();
 
 	public long generateTransactionId() {
+		// generate a long random number
 		transactionId = rand.nextLong();
 		return transactionId;
 	}
@@ -30,7 +31,7 @@ public class TransactImpl implements ITransact {
 	private void deductAmount(Customer c, long amount) {
 		long balance = c.getBalance();
 		balance = balance - amount;
-		
+
 	}
 
 	public void maintainTransactionStatus(long transactionID, Customer c) {
@@ -38,7 +39,7 @@ public class TransactImpl implements ITransact {
 	}
 
 	public void printTransactionStatus(Customer c) {
-		
+
 	}
 
 }

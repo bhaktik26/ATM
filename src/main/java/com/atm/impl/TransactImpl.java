@@ -52,6 +52,7 @@ public class TransactImpl implements ITransact {
 		return false;
 	}
 
+	// deduct the amount withdrawn from the balance
 	private void deductAmount(Customer c, long amount) {
 		long balance = c.getBalance();
 		balance = balance - amount;
@@ -67,6 +68,7 @@ public class TransactImpl implements ITransact {
 		System.out.println("Your transaction details are: ");
 		System.out.println("-----------------------------------");
 		List<Transaction> list = transactionMap.get(c);
+		// print the list of transaction id and amount of a customer
 		for (Transaction t : list) {
 			System.out.println("Transaction id: " + t.getTransactionID() + " Amount: " + t.getAmount());
 		}

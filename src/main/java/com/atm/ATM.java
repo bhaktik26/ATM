@@ -62,6 +62,7 @@ public class ATM {
 			transactionId = new TransactImpl().generateTransactionId();
 			new TransactImpl().maintainTransactionStatus(transactionId, foundCustomer, withdrawalAmt);
 			System.out.println("Please collected the amount, ur balance is updated");
+			// to print the transactions
 			new TransactImpl().printTransactionStatus(foundCustomer);
 		} else {
 			System.out.println("Insufficient balance in your account");

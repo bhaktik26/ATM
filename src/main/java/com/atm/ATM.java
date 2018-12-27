@@ -53,14 +53,17 @@ public class ATM {
 		}
 
 		// check if the amount requested is less than the balance
+		new TransactImpl().initializeBalanceMap();
+		new TransactImpl().initializeTransactionMap();
 		System.out.println("Enter the amount you want to withdraw");
 		long withdrawalAmt = Long.parseLong(br.readLine());
 		boolean isSufficientBalance = new TransactImpl().checkBalance(foundCustomer, withdrawalAmt);
-		if(isSufficientBalance) {
+		if (isSufficientBalance) {
 			transactionId = new TransactImpl().generateTransactionId();
-			
-		}
-		else {
+			new TransactImpl().maintainTransactionStatus(transactionId, foundCustomer, withdrawalAmt);
+			System.out.println("Please collected the amount, ur balance is updated");
+			new TransactImpl().printTransactionStatus(foundCustomer);
+		} else {
 			System.out.println("Insufficient balance in your account");
 		}
 	}
